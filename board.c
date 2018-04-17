@@ -1,11 +1,10 @@
 #include<stdio.h>
 int main() {
-  int i=0, j=0;
+  int i, j;
   printf("Pered vamii - shahmatnaya doska:\n");
 char **a;
-a = new char *[8];
   for (i=1; i<=8; i++){
-	a[i] = new char[8];
+	a[i] = new int[8];
 	
 
     for (j=1; j<=8; j++) {
@@ -14,12 +13,7 @@ a = new char *[8];
 	else a[i][j] = ' ';
     }
 
-
+  printf("\n");
   }
-  for (i=1; i<=8; i++){
-	 for (j=1; j<=8; j++) 
-	printf("%c", a[i][j]);
-	printf("\n");
-}
 }
 
