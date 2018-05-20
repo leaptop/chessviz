@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include<conio.h>//for _getch()
+#include <ncurses.h>//for _getch()
 #include <stdlib.h>
 #include "board.c"
 #include "move.c"

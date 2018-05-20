@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <conio.h>
+#include <ncurses.h>
 #include <stdlib.h>
 void P_move(char str[], char **a) {
 	int x, y, z, k;

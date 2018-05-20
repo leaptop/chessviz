@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <conio.h>
+#include <ncurses.h>
 #include <stdlib.h>
 void boardGeneration(char **a) {
   int i=0, j=0;
