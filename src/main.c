@@ -21,7 +21,7 @@ int main() {
 	printf("%c", str[i]);
 	printf("\n");
 	}
-	while(k<3) {
+	while(k<1000) {
 	scanf("%s", str);
 	P_move(str, a);
 	boardRenew (a);
