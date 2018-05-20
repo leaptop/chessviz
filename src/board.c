@@ -28,7 +28,7 @@ a[8][1]='r';a[8][2]='n';a[8][3]='b';a[8][4]='q';
 a[8][5]='k';a[8][6]='b';a[8][7]='n';a[8][8]='r';
 }
 void boardRenew(char **a){
-	
+	int i = 0, j = 0;
 for (i=8; i>=1; i--){
 	printf("%d", i);
 	 for (j=1; j<=8; j++) 
