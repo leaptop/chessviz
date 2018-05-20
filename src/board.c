@@ -1,3 +1,6 @@
+#ifndef H_BOARD
+#define H_BOARD
+
 #include <stdio.h>
 #include <ncurses.h>
 #include <stdlib.h>
@@ -26,9 +29,9 @@ a[8][5]='k';a[8][6]='b';a[8][7]='n';a[8][8]='r';
 }
 void boardRenew(char **a){
 	
-for (int i=8; i>=1; i--){
+for (i=8; i>=1; i--){
 	printf("%d", i);
-	 for (int j=1; j<=8; j++) 
+	 for (j=1; j<=8; j++) 
 	printf("%c", a[i][j]);
 	printf("\n");
 }
@@ -36,3 +39,4 @@ for (int i=8; i>=1; i--){
 printf(" abcdefgh");
 printf("\n\n");
 }
+#endif

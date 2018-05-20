@@ -1,3 +1,6 @@
+#ifndef H_MOVE
+#define H_MOVE
+
 #include <stdio.h>
 #include <ncurses.h>
 #include <stdlib.h>
@@ -67,3 +70,5 @@ void P_move(char str[], char **a) {
 
 	
 }
+
+#endif

@@ -5,9 +5,10 @@
 #include "move.c"
 
 int main() {
+        int i = 0; 
 	char **a;
 	a=(char  **)malloc(9*sizeof(char *)); 
-	 for (int i=8; i>=1; i--){
+	 for (i=8; i>=1; i--){
 	 a[i]=(char *)malloc(9*sizeof(char));
 	 }
 	boardGeneration(a);
@@ -17,7 +18,7 @@ int main() {
 	int k =0;
 	
 	//while(_getch()!=0){str[k] = _getch();k++;}
-	for (int i = 0; i<4; i++){
+	for (i = 0; i<4; i++){
 	printf("%c", str[i]);
 	printf("\n");
 	}
@@ -28,6 +29,6 @@ int main() {
 	k++;
 	}
 	
-	
+	return 0;
 	
 }
