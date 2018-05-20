@@ -1,4 +1,0 @@
-#include <stdio.h>
-#include <conio.h>
-#include <stdlib.h>
-int P_move() {}
