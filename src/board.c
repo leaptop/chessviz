@@ -20,12 +20,22 @@ void boardGeneration(char **a) {
 void boardRenew(char **a){
 	int i = 0, j = 0;
 	for (i=8; i>=1; i--){
-	printf("%d", i);
-	 for (j=1; j<=8; j++) 
-	printf("%c", a[i][j]);
-	printf("\n");
+		printf("%d", i);
+			for (j=1; j<=8; j++) 
+				printf("%c", a[i][j]);
+		printf("\n");
 	}
 	printf(" abcdefgh");
 	printf("\n\n");
+}
+int checkCommand(char ch[]){
+	if(	ch[4]
+		||ch[0]<97||ch[0]>104
+		||ch[1]<49||ch[1]>56
+		||ch[2]<97||ch[2]>104
+		||ch[3]<49||ch[3]>56
+	) 
+	{printf("\nWrong command. Enter again.\n");return 1;}
+	else return 0;
 }
 #endif
