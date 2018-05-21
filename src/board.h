@@ -6,4 +6,6 @@ void boardGeneration(char **a) ;
 
 void boardRenew(char **a);
 
+int checkCommand(char ch[]);
+
 #endif
