@@ -18,9 +18,18 @@ int main() {
 	while(k<1000) {
 	scanf("%s", str);
 	if(str[0]==48) return 0;
-	int ck = checkCommand(str);	
-	if(ck)continue;
-	P_move(str, a);
+	int ckc = checkCommand(str);	
+	if(ckc)continue;
+	int x, y, z, k;
+	parseCommand(str, &x, &y, &z, &k);
+	printf("\n x = %d, y = %d, z = %d, k = %d\n", x, y, z, k);
+	int ckf = checkFigure(a, x, y);
+	printf("\n ckf = %d\n", ckf);
+	switch(ckf){
+		case 0: break;
+		case 1: P_move(a, x, y, z, k);break;
+	}
+	
 	boardRenew (a);
 	k++;
 	}

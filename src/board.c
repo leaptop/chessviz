@@ -39,4 +39,12 @@ int checkCommand(char ch[]){
 	{printf("\nWrong command. Enter again.\n");return 1;}
 	else return 0;
 }
+int checkFigure(char **a, int x, int y){
+printf("\na[x][y] = %d\n", a[x][y]);
+	if(a[x][y] == 112 || a[x][y] == 80)//Pawn
+		return 1;
+	if(a[x][y] == 75 || a[x][y] == 107)//Knight
+		return 2;
+	else return 0;
+}
 #endif
