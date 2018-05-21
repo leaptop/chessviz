@@ -29,7 +29,8 @@ void boardRenew(char **a){
 	printf("\n\n");
 }
 int checkCommand(char ch[]){
-	if(	ch[4]
+	if(	strlen(ch)<4
+		||ch[4]
 		||ch[0]<97||ch[0]>104
 		||ch[1]<49||ch[1]>56
 		||ch[2]<97||ch[2]>104

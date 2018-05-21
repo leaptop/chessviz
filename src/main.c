@@ -17,7 +17,9 @@ int main() {
 	int k =0;
 	while(k<1000) {
 	scanf("%s", str);
-	if(checkCommand(str))scanf("%s", str);
+	if(str[0]==48) return 0;
+	int ck = checkCommand(str);	
+	if(ck)continue;
 	P_move(str, a);
 	boardRenew (a);
 	k++;
