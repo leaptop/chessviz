@@ -64,12 +64,25 @@ if(
 		a[y][x] ='-';
 		a[k][z] = temp;
 		}
-	else printf("\n Wrong insertion\n ");	
+	else printf("\nP_move(): Wrong insertion\n ");	
 }
-void P_move(char **a, int x, int y, int z, int k){
+void R_move(char **a, int x, int y, int z, int k){
 
-
-
+if(
+	(x==z) || (y==k)
+  )	{
+	char temp = a[y][x];
+	a[y][x] = '-';
+	a[k][z] = temp;
+	}
 }
+
+void N_move(char **a, int x, int y, int z, int k){}
+
+void B_move(char **a, int x, int y, int z, int k){}
+
+void Q_move(char **a, int x, int y, int z, int k){}
+
+void K_move(char **a, int x, int y, int z, int k){}
 
 #endif
