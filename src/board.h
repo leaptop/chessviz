@@ -8,6 +8,6 @@ void boardRenew(char **a);
 
 int checkCommand(char ch[]);
 
-int checkFigure(char **a, int x, int y);
+int checkFigure(char **a, int x, int y, int BlorWh);
 
 #endif

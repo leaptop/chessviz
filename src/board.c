@@ -18,6 +18,7 @@ void boardGeneration(char **a) {
 	a[8][5]='k';a[8][6]='b';a[8][7]='n';a[8][8]='r';
 }
 void boardRenew(char **a){
+	printf("\n");
 	int i = 0, j = 0;
 	for (i=8; i>=1; i--){
 		printf("%d", i);
@@ -26,7 +27,7 @@ void boardRenew(char **a){
 		printf("\n");
 	}
 	printf(" abcdefgh");
-	printf("\n\n");
+	printf("\n");
 }
 int checkCommand(char ch[]){//If the command's length is less or more than 4, or the letters or numbers are out of range => wrong command
 	if(	strlen(ch)<4
@@ -39,9 +40,25 @@ int checkCommand(char ch[]){//If the command's length is less or more than 4, or
 	{printf("\ncheckCommand() returns 1: Wrong command(length or letters or numbers). Enter again.\n");return 1;}
 	else return 0;
 }
-int checkFigure(char **a, int x, int y){
-printf("\n(x,y) = %d\n", a[y][x]);// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. It's like a transposed matrix. 
-	if(a[y][x] == 112 || a[y][x] == 80)//Pawn, rook, knight, bishop, queen, king
+int checkFigure(char **a, int x, int y, int BlorWh){//BlorWh = 1 => Big goes
+//printf("\n(x,y) = %d\n", a[y][x]);// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. It's like a transposed matrix. 
+//Pawn, rook, knight, bishop, queen, king
+	//big move
+	if(BlorWh && a[y][x] == 80) return 1;//Pawn
+	if(BlorWh && a[y][x] == 82) return 2;//Rook
+	if(BlorWh && a[y][x] == 78) return 3;//kNight
+	if(BlorWh && a[y][x] == 66) return 4;//Bishop
+	if(BlorWh && a[y][x] == 81) return 5;//Queen
+	if(BlorWh && a[y][x] == 75) return 6;//King
+	//small move
+	if(!BlorWh && a[y][x] == 112) return 1;//pawn
+	if(!BlorWh && a[y][x] == 114) return 2;//rook
+	if(!BlorWh && a[y][x] == 110) return 3;//knight
+	if(!BlorWh && a[y][x] == 98 ) return 4;//bishop
+	if(!BlorWh && a[y][x] == 113) return 5;//queen
+	if(!BlorWh && a[y][x] == 107) return 6;//king
+
+	/*if(a[y][x] == 112 || a[y][x] == 80)//Pawn, rook, knight, bishop, queen, king
 		return 1;	
 	if(a[y][x] == 82 || a[y][x] == 114)//Rook
 		return 2;
@@ -52,7 +69,7 @@ printf("\n(x,y) = %d\n", a[y][x]);// x in a[x][y] is a number of string(y variab
 	if(a[y][x] == 81 || a[y][x] == 113)//Queen
 		return 5;
 	if(a[y][x] == 107 || a[y][x] == 75)//King
-		return 6;
+		return 6;*/
 
 	else {printf("checkFigure() returns 0: wrong figure"); return 0;}
 }

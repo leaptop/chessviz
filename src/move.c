@@ -47,7 +47,7 @@ void parseCommand(char str[], int *x, int *y, int *z, int *k){
 	}
 }
 
-void P_move(char **a, int x, int y, int z, int k) {	
+void P_move(char **a, int x, int y, int z, int k, int *BlorWh) {	
 	//Let's consider these coords as Decart for a while...
 if(
 	(x == z ) && (//if x doesn't change
@@ -63,10 +63,11 @@ if(
 		char temp = a[y][x];
 		a[y][x] ='-';
 		a[k][z] = temp;
+		if(*BlorWh == 1) *BlorWh = 0; else *BlorWh = 1;
 		}
 	else printf("\nP_move(): Wrong insertion\n ");	
 }
-void R_move(char **a, int x, int y, int z, int k){
+void R_move(char **a, int x, int y, int z, int k, int *BlorWh){
 
 if(
 	(x==z) || (y==k)
@@ -74,12 +75,13 @@ if(
 	char temp = a[y][x];
 	a[y][x] = '-';
 	a[k][z] = temp;
+	if(*BlorWh == 1) *BlorWh = 0; else *BlorWh = 1;
 	}else printf("\nR_move(): Wrong insertion\n ");	
 }
 
-void N_move(char **a, int x, int y, int z, int k){}
+void N_move(char **a, int x, int y, int z, int k, int *BlorWh){}
 
-void B_move(char **a, int x, int y, int z, int k){
+void B_move(char **a, int x, int y, int z, int k, int *BlorWh){
 if(
 	(x-z)==(y-k)//changes of x and y are the same 
 	||(x-z)==(k-y)//x decreased on the same number as y increased
@@ -88,10 +90,11 @@ if(
 	char temp = a[y][x];
 	a[y][x] = '-';
 	a[k][z] = temp;
+	if(*BlorWh == 1) *BlorWh = 0; else *BlorWh = 1;
 	}else printf("\nB_move(): Wrong insertion\n ");	
 }
 
-void Q_move(char **a, int x, int y, int z, int k){
+void Q_move(char **a, int x, int y, int z, int k, int *BlorWh){
 
 if(	(x==z) || (y==k)
 	||(x-z)==(y-k)//changes of x and y are the same 
@@ -101,9 +104,10 @@ if(	(x==z) || (y==k)
 	char temp = a[y][x];
 	a[y][x] = '-';
 	a[k][z] = temp;
+	if(*BlorWh == 1) *BlorWh = 0; else *BlorWh = 1;
 	}else printf("\nQ_move(): Wrong insertion\n ");	
 }
 
-void K_move(char **a, int x, int y, int z, int k){}
+void K_move(char **a, int x, int y, int z, int k, int *BlorWh){}
 
 #endif
