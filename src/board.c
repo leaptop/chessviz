@@ -40,8 +40,10 @@ int checkCommand(char ch[]){//If the command's length is less or more than 4, or
 	{printf("\ncheckCommand() returns 1: Wrong command(length or letters or numbers). Enter again.\n");return 1;}
 	else return 0;
 }
-int checkFigure(char **a, int x, int y, int BlorWh){//BlorWh = 1 => Big goes
-//printf("\n(x,y) = %d\n", a[y][x]);// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. It's like a transposed matrix. 
+int checkFigure(char **a, int x, int y, int BlorWh){//BlorWh = 1 => Big's turn
+//printf("\n(x,y) = %d\n", a[y][x]);
+
+// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. It's like a transposed matrix. 
 //Pawn, rook, knight, bishop, queen, king
 	//big move
 	if(BlorWh && a[y][x] == 80) return 1;//Pawn
@@ -57,19 +59,6 @@ int checkFigure(char **a, int x, int y, int BlorWh){//BlorWh = 1 => Big goes
 	if(!BlorWh && a[y][x] == 98 ) return 4;//bishop
 	if(!BlorWh && a[y][x] == 113) return 5;//queen
 	if(!BlorWh && a[y][x] == 107) return 6;//king
-
-	/*if(a[y][x] == 112 || a[y][x] == 80)//Pawn, rook, knight, bishop, queen, king
-		return 1;	
-	if(a[y][x] == 82 || a[y][x] == 114)//Rook
-		return 2;
-	if(a[y][x] == 78 || a[y][x] == 110)//kNight
-		return 3;
-	if(a[y][x] == 66 || a[y][x] == 98)//Bishop
-		return 4;
-	if(a[y][x] == 81 || a[y][x] == 113)//Queen
-		return 5;
-	if(a[y][x] == 107 || a[y][x] == 75)//King
-		return 6;*/
 
 	else {printf("checkFigure() returns 0: wrong figure"); return 0;}
 }

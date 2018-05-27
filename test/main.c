@@ -19,22 +19,49 @@ CTEST(Command, IncorrectCommand) {
 
 CTEST(CheckFigure, Correct) {
 
-    int result =  checkFigure(char **a, int x, int y, int BlorWh);
-    int expected = 1;
+	int i;
+	char **a;
+    	a=(char  **)malloc(9*sizeof(char *)); 
+	for (i=8; i>=1; i--){
+		a[i]=(char *)malloc(9*sizeof(char));
+	}
+	boardGeneration(a);
+	
+
+    int result =  checkFigure(a, 5, 1, 1);
+    int expected = 6;
     ASSERT_EQUAL(expected,result);
 }
 
-CTEST(PawnMove, Incorrect) {
-    int result = MakeMove("Pb2-b3",0,1);
-    int expected = 0;
+CTEST(CheckFigure, Incorrect) {
+
+	int i;
+	char **a;
+    	a=(char  **)malloc(9*sizeof(char *)); 
+	for (i=8; i>=1; i--){
+		a[i]=(char *)malloc(9*sizeof(char));
+	}
+	boardGeneration(a);
+
+
+    int result =  checkFigure(a, 5, 8, 0);
+    int expected = 6;
     ASSERT_EQUAL(expected,result);
+}
+
+int main(int argc, const char** argv) {
+
+
+    int test_res = ctest_main(argc, argv);
+   // ClearBoard();
+    return test_res;
 }
 /*
 CTEST(KnightMove, Correct) {
     int result = MakeMove("Nb1-a3",0,0);
     int expected = 1;
     ASSERT_EQUAL(expected,result);
-}
+}	
 
 CTEST(KnightMove, Incorrect) {
     int result = MakeMove("ng1-h3",0,0);
@@ -78,9 +105,3 @@ CTEST(Castling, Incorrect) {
     ASSERT_EQUAL(expected,result);
 }
 */
-int main(int argc, const char** argv) {
-    //InitBoard();
-    int test_res = ctest_main(argc, argv);
-   // ClearBoard();
-    return test_res;
-}
