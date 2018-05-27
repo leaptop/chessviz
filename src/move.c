@@ -6,7 +6,7 @@
 void parseCommand(char str[], int *x, int *y, int *z, int *k){
 	
 	switch(str[0]){
-		case 'a': *x = 1;break;
+		case 'a': *x = 1;break;//decart coordinates of the beginning and of the finishing spot
 		case 'b': *x = 2;break;
 		case 'c': *x = 3;break;
 		case 'd': *x = 4;break;

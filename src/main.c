@@ -17,7 +17,7 @@ int main() {
 	int k =0;
 	while(k<1000) {
 	scanf("%s", str);
-	if(str[0]==48) return 0;
+	if(str[0]==48) return 0;//if the insertion is 0, close the program
 	int ckc = checkCommand(str);	
 	if(ckc)continue;
 	int x, y, z, k;

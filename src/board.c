@@ -28,7 +28,7 @@ void boardRenew(char **a){
 	printf(" abcdefgh");
 	printf("\n\n");
 }
-int checkCommand(char ch[]){
+int checkCommand(char ch[]){//If the command's length is less or more than 4, or the letters or numbers are out of range => wrong command
 	if(	strlen(ch)<4
 		||ch[4]
 		||ch[0]<97||ch[0]>104
@@ -40,8 +40,8 @@ int checkCommand(char ch[]){
 	else return 0;
 }
 int checkFigure(char **a, int x, int y){
-printf("\na[x][y] = %d\n", a[x][y]);
-	if(a[x][y] == 112 || a[x][y] == 80)//Pawn
+printf("\na[x][y] = %d\n", a[x][y]);// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. 
+	if(a[y][x] == 112 || a[x][y] == 80)//Pawn
 		return 1;
 	if(a[x][y] == 75 || a[x][y] == 107)//Knight
 		return 2;
