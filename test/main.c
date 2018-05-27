@@ -5,13 +5,13 @@
 
 #include <ctest.h>
 
-CTEST(Command, CorrectCommand) {
+CTEST(checkCommand, Correct) {
     int result = checkCommand("e2e4");
     int expected = 0;
     ASSERT_EQUAL(expected,result);
 }
 
-CTEST(Command, IncorrectCommand) {
+CTEST(checkCommand, Incorrect) {
     int result = checkCommand("e2z5");
     int expected = 1;
     ASSERT_EQUAL(expected,result);
@@ -26,8 +26,6 @@ CTEST(CheckFigure, Correct) {
 		a[i]=(char *)malloc(9*sizeof(char));
 	}
 	boardGeneration(a);
-	
-
     int result =  checkFigure(a, 5, 1, 1);
     int expected = 6;
     ASSERT_EQUAL(expected,result);
@@ -42,10 +40,55 @@ CTEST(CheckFigure, Incorrect) {
 		a[i]=(char *)malloc(9*sizeof(char));
 	}
 	boardGeneration(a);
-
-
     int result =  checkFigure(a, 5, 8, 0);
     int expected = 6;
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(boardGeneration, Correct) {
+   int i;
+	char **a;
+    	a=(char  **)malloc(9*sizeof(char *)); 
+	for (i=8; i>=1; i--){
+		a[i]=(char *)malloc(9*sizeof(char));
+	}
+	boardGeneration(a);
+	char result = a[1][6];
+	char expected = 'B';
+    ASSERT_EQUAL(expected,result);
+}	
+
+CTEST(boardGeneration, Incorrect) {
+    int i;
+	char **a;
+    	a=(char  **)malloc(9*sizeof(char *)); 
+	for (i=8; i>=1; i--){
+		a[i]=(char *)malloc(9*sizeof(char));
+	}
+	boardGeneration(a);
+	char result = a[1][7];
+	char expected = 'N';
+    ASSERT_EQUAL(expected,result);
+}
+
+void parseCommand(char str[], int *x, int *y, int *z, int *k);
+
+CTEST(parseCommand, Correct) {
+	int x, y, z, k;
+   parseCommand("e2e4", &x, &y, &z, &k);
+    	
+	int result = x;
+	int expected = 5;
+    ASSERT_EQUAL(expected,result);
+}
+
+
+CTEST(parseCommand, Incorrect) {
+	int x, y, z, k;
+   parseCommand("e2e4", &x, &y, &z, &k);
+    	
+	int result = y;
+	int expected = 2;
     ASSERT_EQUAL(expected,result);
 }
 
@@ -56,52 +99,4 @@ int main(int argc, const char** argv) {
    // ClearBoard();
     return test_res;
 }
-/*
-CTEST(KnightMove, Correct) {
-    int result = MakeMove("Nb1-a3",0,0);
-    int expected = 1;
-    ASSERT_EQUAL(expected,result);
-}	
 
-CTEST(KnightMove, Incorrect) {
-    int result = MakeMove("ng1-h3",0,0);
-    int expected = 0;
-    ASSERT_EQUAL(expected,result);
-}
-
-CTEST(BishopMove, Correct) {
-    int result = MakeMove("Bc1-d2",0,0);
-    int expected = 1;
-    ASSERT_EQUAL(expected,result);
-}
-
-CTEST(BishopMove, Incorrect) {
-    int result = MakeMove("Bg8-h7",0,0);
-    int expected = 0;
-    ASSERT_EQUAL(expected,result);
-}
-
-CTEST(QueenMove, Correct) {
-    int result = MakeMove("Qd1-f3",0,0);
-    int expected = 1;
-    ASSERT_EQUAL(expected,result);
-}
-
-CTEST(QueenMove, Incorrect) {
-    int result = MakeMove("Qd8-d7",0,0);
-    int expected = 0;
-    ASSERT_EQUAL(expected,result);
-}
-
-CTEST(Castling, Correct) {
-    int result = Castling(1,1);
-    int expected = 1;
-    ASSERT_EQUAL(expected,result);
-}
-
-CTEST(Castling, Incorrect) {
-    int result = Castling(0,0);
-    int expected = 0;
-    ASSERT_EQUAL(expected,result);
-}
-*/

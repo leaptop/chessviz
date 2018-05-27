@@ -1,9 +1,16 @@
 CC = gcc
+CXX=gcc
+CFLAGS =  -c -Wall -Werror -std=c99
 CFLAGS  = -Wall -Werror -std=gnu11
+OBJECTS = main.o build/move.o build/board.o
 
 .PHONY: clean
 
 default: bin/chessviz
+
+default: bin/prog
+bin/prog: $(OBJECTS) 
+	$(CXX) $(FLAGS) $(OBJECTS) -o main
 
 test: bin/chessviz-test
 	bin/chessviz-test

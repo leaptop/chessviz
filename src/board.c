@@ -26,7 +26,7 @@ void boardRenew(char **a){
 				printf("%c", a[i][j]);
 		printf("\n");
 	}
-	printf(" abcdefgh");
+	printf(" Abcdefgh");
 	printf("\n");
 }
 int checkCommand(char ch[]){//If the command's length is less or more than 4, or the letters or numbers are out of range => wrong command
