@@ -93,8 +93,15 @@ if(
 
 void Q_move(char **a, int x, int y, int z, int k){
 
-
-
+if(	(x==z) || (y==k)
+	||(x-z)==(y-k)//changes of x and y are the same 
+	||(x-z)==(k-y)//x decreased on the same number as y increased
+	||(z-x)==(k-y)//x increased on the same number as y decreased
+  )	{
+	char temp = a[y][x];
+	a[y][x] = '-';
+	a[k][z] = temp;
+	}else printf("\nQ_move(): Wrong insertion\n ");	
 }
 
 void K_move(char **a, int x, int y, int z, int k){}
