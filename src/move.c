@@ -48,15 +48,18 @@ void parseCommand(char str[], int *x, int *y, int *z, int *k){
 }
 
 void P_move(char **a, int x, int y, int z, int k) {	
-	
-	if(
-			(x == z ) && (
-			 k == (y+1)//нижние ходят на шаг вперёд или
-			||((y==2)&&k==(y+2))//нижние делают первый ход на два шага вперёд или
-			||(y==7&&k==y-2)//верхние делают первый ход на два шага вперёд или
+	//Let's consider these coords as Decart for a while...
+if(
+	(x == z ) && (//if x doesn't change
+			k == (y+1)//and y increases by 1 the lower P makes one step ahead
+					||(y==2&&k==y+2)
+			//or if x doesn't change and y0 = 2 and y1 = 4 the lower P makes it's first step in two sqares ahead
 			||k==(y-1)//верхние делают шаг вперёд
-					)
-	)
+					||(y==7&&k==y-2)//or(x still doesn't change) and y decreases by 2 the upper P makes it's first step in two squares ahead
+			
+		     )
+			
+  )
 	
 		{
 		char temp = a[y][x];

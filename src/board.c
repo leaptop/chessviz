@@ -36,15 +36,24 @@ int checkCommand(char ch[]){//If the command's length is less or more than 4, or
 		||ch[2]<97||ch[2]>104
 		||ch[3]<49||ch[3]>56
 	) 
-	{printf("\nWrong command. Enter again.\n");return 1;}
+	{printf("\ncheckCommand() returns 1: Wrong command(length or letters or numbers). Enter again.\n");return 1;}
 	else return 0;
 }
 int checkFigure(char **a, int x, int y){
-printf("\na[x][y] = %d\n", a[x][y]);// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. 
-	if(a[y][x] == 112 || a[x][y] == 80)//Pawn
-		return 1;
-	if(a[x][y] == 75 || a[x][y] == 107)//Knight
+printf("\n(x,y) = %d\n", a[y][x]);// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. It's like a transposed matrix. 
+	if(a[y][x] == 112 || a[y][x] == 80)//Pawn, rook, knight, bishop, queen, king
+		return 1;	
+	if(a[y][x] == 122 || a[y][x] == 114)//Rook
 		return 2;
-	else return 0;
+	if(a[y][x] == 78 || a[y][x] == 110)//kNight
+		return 3;
+	if(a[y][x] == 66 || a[y][x] == 98)//Bishop
+		return 4;
+	if(a[y][x] == 81 || a[y][x] == 113)//Queen
+		return 5;
+	if(a[y][x] == 107 || a[y][x] == 75)//King
+		return 6;
+
+	else {printf("checkFigure() returns 0: wrong figure"); return 0;}
 }
 #endif
