@@ -79,7 +79,24 @@ if(
 	}else printf("\nR_move(): Wrong insertion\n ");	
 }
 
-void N_move(char **a, int x, int y, int z, int k, int *BlorWh){}
+void N_move(char **a, int x, int y, int z, int k, int *BlorWh){
+//x y    z k
+if(	((z-x)==2 && (k-y)==1)//1
+	||((z-x)==2 && (y-k)==1)//2
+	||((z-x)==1 && (y-k)==2)//3
+	||((x-z)==1 && (y-k) ==2)//4
+	||((x-z)==2 && (y-k) ==1)//5
+	||((x-z)==2 && (k-y) ==1)//6
+	||((x-z)==1 && (k-y) == 2)//7
+	||((z-x)==1 && (k-y)==2)//8
+  ){
+	char temp = a[y][x];
+	a[y][x] = '-';
+	a[k][z] = temp;
+	if(*BlorWh == 1) *BlorWh = 0; else *BlorWh = 1;
+	}else printf("\nN_move(): Wrong insertion\n ");	
+
+}
 
 void B_move(char **a, int x, int y, int z, int k, int *BlorWh){
 if(
@@ -108,6 +125,16 @@ if(	(x==z) || (y==k)
 	}else printf("\nQ_move(): Wrong insertion\n ");	
 }
 
-void K_move(char **a, int x, int y, int z, int k, int *BlorWh){}
+void K_move(char **a, int x, int y, int z, int k, int *BlorWh){
+
+if(
+	abs(x-z)<=1 && abs(y-k)<=1
+  )	{
+	char temp = a[y][x];
+	a[y][x] = '-';
+	a[k][z] = temp;
+	if(*BlorWh == 1) *BlorWh = 0; else *BlorWh = 1;
+	}else printf("\nK_move(): Wrong insertion\n ");	
+}
 
 #endif
