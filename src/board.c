@@ -43,7 +43,7 @@ int checkFigure(char **a, int x, int y){
 printf("\n(x,y) = %d\n", a[y][x]);// x in a[x][y] is a number of string(y variable in math synthax), y in a[x][y] is a number of column(x variable in math syntax). Thus we should adress (x,y) dot in decart coordinates as a[y][x]. It's like a transposed matrix. 
 	if(a[y][x] == 112 || a[y][x] == 80)//Pawn, rook, knight, bishop, queen, king
 		return 1;	
-	if(a[y][x] == 122 || a[y][x] == 114)//Rook
+	if(a[y][x] == 82 || a[y][x] == 114)//Rook
 		return 2;
 	if(a[y][x] == 78 || a[y][x] == 110)//kNight
 		return 3;
