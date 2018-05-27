@@ -59,16 +59,17 @@ if(
 			
 		     )
 			
-  )
-	
-		{
+  )		{
 		char temp = a[y][x];
 		a[y][x] ='-';
 		a[k][z] = temp;
 		}
-	else printf("\n Wrong insertion\n ");
+	else printf("\n Wrong insertion\n ");	
+}
+void P_move(char **a, int x, int y, int z, int k){
 
-	
+
+
 }
 
 #endif
