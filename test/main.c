@@ -1,9 +1,9 @@
 #define CTEST_MAIN
-
+#include <ctest.h>
 #include <move.h>
 #include <board.h>
 
-#include <ctest.h>
+
 
 CTEST(checkCommand, Correct) {
     int result = checkCommand("e2e4");

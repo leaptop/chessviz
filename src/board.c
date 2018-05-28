@@ -37,7 +37,8 @@ int checkCommand(char ch[]){//If the command's length is less or more than 4, or
 		||ch[2]<97||ch[2]>104
 		||ch[3]<49||ch[3]>56
 	) 
-	{printf("\ncheckCommand() returns 1: Wrong command(length or letters or numbers). Enter again.\n");return 1;}
+	{//printf("\ncheckCommand() returns 1: Wrong command(length or letters or numbers). Enter again.\n");
+	return 1;}
 	else return 0;
 }
 int checkFigure(char **a, int x, int y, int BlorWh){//BlorWh = 1 => Big's turn
