@@ -3,7 +3,7 @@ CFLAGS  = -Wall -Werror -std=gnu11
 
 .PHONY: clean
 
-default: bin/chessviz
+#default: bin/chessviz
 
 test: bin/chessviz-test
 	bin/chessviz-test
