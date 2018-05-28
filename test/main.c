@@ -1,3 +1,4 @@
+
 #define CTEST_MAIN
 #include <ctest.h>
 #include <move.h>
@@ -99,4 +100,5 @@ int main(int argc, const char** argv) {
    // ClearBoard();
     return test_res;
 }
+
 

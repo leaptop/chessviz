@@ -2,7 +2,9 @@ CC = gcc
 CFLAGS  = -Wall -Werror -std=gnu11
 
 .PHONY: clean
+
 all: bin build test default
+
 default: bin/chessviz
 
 test: bin/chessviz-test
@@ -16,6 +18,7 @@ build/main.o: src/main.c src/board.h  src/move.h build
 
 build/board.o: src/board.c src/board.h  src/move.h build
 	$(CC) $(CFLAGS) -c src/board.c -o build/board.o
+
 
 #make: *** No rule to make target `thirdparty/ctest.h', needed by `build/main_test.o'.  Stop.
 
