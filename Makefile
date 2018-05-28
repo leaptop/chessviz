@@ -2,8 +2,8 @@ CC = gcc
 CFLAGS  = -Wall -Werror -std=gnu11
 
 .PHONY: clean
-
-#default: bin/chessviz
+all: bin build default test
+default: bin/chessviz
 
 test: bin/chessviz-test
 	bin/chessviz-test
