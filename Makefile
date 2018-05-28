@@ -24,7 +24,7 @@ build/board.o: src/board.c src/board.h  src/move.h build
 build/move.o: src/move.c src/move.h build
 	$(CC) $(CFLAGS) -c src/move.c -o build/move.o
 
-bin/chessviz-test: build/main_test.o build/board.o  build/move.o src bin
+bin/chessviz-test: build/main_test.o build/board.o  build/move.o bin
 	$(CC) $(CFLAGS) build/main_test.o build/board.o  build/move.o -o bin/chessviz-test
 
 #build/main_test.o: test/main.c thirdparty/ctest.h src/board.h src/move.h build
