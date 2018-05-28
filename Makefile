@@ -1,46 +1,43 @@
-CXX=gcc
-CFLAGS =  -c -Wall -Werror -std=c99
-FLAGS  =  -Wall -Werror -std=c99
-OBJECTS = main.o build/move.o build/board.o
+CC = gcc
+CFLAGS  = -Wall -Werror -std=gnu11
 
-.PHONY: clean all bin build default test
+.PHONY: clean
+all: bin build test default
+default: bin/chessviz
 
-SOURCES = src/main.c src/move.c src/board.c
-OBJECTS = $(SOURCES:src/.c=bin/.o)
+test: bin/chessviz-test
+	bin/chessviz-test
 
-#iEdit: $(patsubst %.c,%.o,$(wildcard *.c))
-#gcc $^ -o $@	$	
-#%.o: %.c
-#gcc -c $<	$
-#main.o: main.h board.h move.h
-#board.o: board.h move.h
-#move.o: move.h
+bin/chessviz: build/main.o build/board.o  build/move.o bin
+	$(CC) $(CFLAGS) build/main.o build/board.o  build/move.o -o bin/chessviz
 
-$(PROJECT): $(SOURCES)
+build/main.o: src/main.c src/board.h  src/move.h build
+	$(CC) $(CFLAGS) -c src/main.c -o build/main.o
 
+build/board.o: src/board.c src/board.h  src/move.h build
+	$(CC) $(CFLAGS) -c src/board.c -o build/board.o
 
-	
-all: bin build default test
-default: bin/prog
-bin/prog: $(OBJECTS) 
-	$(CXX) $(FLAGS) $(OBJECTS) -o main
+#make: *** No rule to make target `thirdparty/ctest.h', needed by `build/main_test.o'.  Stop.
 
-build/main.o: src/main.c src/board.h  src/move.h
-	$(CXX) $(CFLAGS) src/main.c  -o build/main.o
+#gcc -I thirdparty src -c test/board_test.c -o build/test/board_test.o
 
-build/move.o: src/move.c src/board.h  src/move.h
-	$(CXX) $(CFLAGS) src/move.c -o build/move.o
+build/move.o: src/move.c src/move.h build
+	$(CC) $(CFLAGS) -c src/move.c -o build/move.o
 
-build/board.o: src/board.c src/board.h  src/move.h
-	$(CXX) $(CFLAGS) src/board.c -o build/board.o
-	
-	#gcc -Wall -Werror -o main src/main.c
-	#gcc -Wall -Werror -o bin/move src/move.c
-	#gcc -Wall -Werror -o bin/board src/board.c
+bin/chessviz-test: build/main_test.o build/board.o  build/move.o bin
+	$(CC) $(CFLAGS) build/main_test.o build/board.o  build/move.o -o bin/chessviz-test
+
+#build/main_test.o: test/main.c thirdparty/ctest.h src/board.h src/move.h build
+#	$(CC) $(CFLAGS) -I thirdparty -I src -c test/main.c -o build/main_test.o
+
+build/main_test.o: test/main.c thirdparty/ctest.h src/board.h src/move.h build
+	$(CC) $(CFLAGS) -I thirdparty -I src  -c test/main.c -o build/main_test.o
+
 build:
 	mkdir build
-	mkdir bin 
+
+bin:
+	mkdir bin
 
 clean:
-	-rm -rf build bin
-
+	rm -rf build bin

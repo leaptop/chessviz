@@ -24,7 +24,7 @@ int main() {
 		if(ckc)continue;//if (1(true)) goes to the beginning of the cycle(calls "continue"). Else (0)- just goes farther.
 		int x, y, z, k;
 		parseCommand(str, &x, &y, &z, &k);
-		printf("\n x = %d, y = %d, z = %d, k = %d\n", x, y, z, k);
+		//printf("\n x = %d, y = %d, z = %d, k = %d\n", x, y, z, k);
 		int ckf = checkFigure(a, x, y, BlorWh);
 			switch(ckf){
 			case 0: continue;//Pawn, rook, knight, bishop, queen, king
