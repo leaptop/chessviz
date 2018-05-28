@@ -19,6 +19,8 @@ build/board.o: src/board.c src/board.h  src/move.h build
 
 #make: *** No rule to make target `thirdparty/ctest.h', needed by `build/main_test.o'.  Stop.
 
+#gcc -I thirdparty src -c test/board_test.c -o build/test/board_test.o
+
 build/move.o: src/move.c src/move.h build
 	$(CC) $(CFLAGS) -c src/move.c -o build/move.o
 
